@@ -1,127 +1,77 @@
 <template>
   <section
-    :id="
-      global.currentTab === 'customers'
-        ? texts.customers.navLinks.link1.sectionHash
-        : texts.sellers.navLinks.link1.sectionHash
-    "
+    id="index"
     class="pb-6 hero flex mt-[var(--min-height-header)] flex-col pt-7 md:pt-8 lg:pt-9"
   >
     <div
       class="hero__inner flex flex-col items-center text-center justify-center mx-auto w-full h-full"
     >
       <div
-        class="px-1 ltr:max-w-[100%] max-w-[89%] mx-auto sm:px-10 lg:px-11 ltr:sm:max-w-[550px] sm:max-w-[550px] min-h-[480px]"
+        class="px-1 mx-auto sm:px-10 lg:px-11  min-h-[480px]"
       >
-        <!-- tabs -->
-        <div class="relative w-full">
-          <ul
-            id="tabsContainer"
-            class="tabs__container flex select-none flex-nowrap items-center w-full"
-          >
-            <HeroTabItem
-              tabId="customers"
-              :isActive="global.currentTab === 'customers'"
-              :updateTab="updateTab"
-              :tabName="$t('hero.tabs_names.first_tab')"
-            />
-            <HeroTabItem
-              tabId="sellers"
-              :isActive="global.currentTab === 'sellers'"
-              :updateTab="updateTab"
-              :tabName="$t('hero.tabs_names.second_tab')"
-            />
-          </ul>
-        </div>
-        <!-- intro -->
-        <div
-          class="text-white text-[17px] sm:text-[19px] md:text-[21px] lg:text-[20px] xl:text-[21px] 3xl:text-[23px]"
-        >
+        <div class="text-white">
           <h1
-            class="font-bold mt-10 md:mt-12 mb-2.5 animate__animated animate__bounce animate__delay-2s"
+            class="font-bold mt-10 md:mt-12 mb-2.5 text-[28px] sm:text-[34px] md:text-[44px] lg:text-[54px] xl:text-[64px] 3xl:text-[76px] tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] lg:tracking-[0.35em] text-gradient animate-fade-in-up"
           >
             {{ $t("hero.title") }}
           </h1>
 
-          <Transition name="tab-content" mode="out-in">
-            <!-- text for customers -->
-            <div v-if="global.currentTab === 'customers'">
-              <p
-                v-html="$t('hero.customers.text1')"
-                class="font-normal mt-1"
-              />
-              <p
-                v-html="$t('hero.customers.text2')"
-                class="text-secondary mt-6"
-              />
-              <!-- customers' container-->
+          <div>
+            <p
+              class="text-[19px] sm:text-[21px] md:text-[24px] lg:text-[26px] xl:text-[28px] 3xl:text-[32px] font-bold mt-3"
+            >
+              {{ $t("hero.tagline") }}
+            </p>
+            <p
+              class="text-[17px] sm:text-[19px] md:text-[21px] lg:text-[22px] xl:text-[24px] 3xl:text-[28px] font-normal mt-1"
+            >
+              {{ $t("hero.tagline_location") }}
+            </p>
+            <p
+              class="text-[17px] sm:text-[19px] md:text-[21px] lg:text-[22px] xl:text-[24px] 3xl:text-[28px] font-normal mt-6"
+            >
+              {{ $t("hero.subtitle1") }}
+            </p>
+            <p
+              class="text-[17px] sm:text-[19px] md:text-[21px] lg:text-[22px] xl:text-[24px] 3xl:text-[28px] font-normal mt-1"
+            >
+              {{ $t("hero.subtitle2") }}
+            </p>
+            <div
+              class="flex items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-7 w-full flex-wrap mt-8"
+            >
               <div
-                class="flex items-center justify-center gap-7 sm:gap-10 lg:gap-16 w-full flex-nowrap mt-3"
+                v-for="item in features"
+                :key="item.textKey"
+                class="flex flex-col items-center gap-1.5 sm:gap-2 min-w-[70px] sm:min-w-[80px] md:min-w-[90px]"
               >
                 <img
-                  :draggable="false"
-                  :src="coinsImg"
-                  class="object-contain w-[65px] md:w-[79px] lg:w-[69px] 3xl:w-[73px] h-auto"
-                  width="69"
-                  height="75"
-                  alt
+                  :src="item.icon"
+                  class="w-[35px] h-[35px] sm:w-[40px] sm:h-[40px] md:w-[45px] md:h-[45px] lg:w-[50px] lg:h-[50px] object-contain"
+                  :alt="$t(item.textKey)"
                 />
-                <img
-                  :draggable="false"
-                  :src="giftImg"
-                  class="object-contain w-[80px] md:w-[85px] lg:w-[88px] 3xl:w-[92px] h-auto"
-                  width="88"
-                  height="75"
-                  alt
-                />
+                <span
+                  class="text-secondary text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-bold leading-tight"
+                >
+                  {{ $t(item.textKey) }}
+                </span>
               </div>
             </div>
-
-            <!-- text for sellers -->
-            <div v-else>
-              <p
-                v-html="$t('hero.sellers.text1')"
-                :class="`font-normal ${global?.isRTL ? 'md:font-bold' : ''}`"
-              />
-              <p
-                v-html="$t('hero.sellers.text2')"
-                class="text-secondary mt-6"
-              />
-              <!-- sellers' container-->
-              <div>
-                <p v-html="$t('hero.sellers.text3')" />
-              </div>
-            </div>
-          </Transition>
+          </div>
 
           <div
-            class="app__links flex items-center justify-center mt-14 flex-wrap gap-2 md:gap-4"
+            class="flex items-center justify-center mt-14 flex-wrap gap-2 md:gap-4"
           >
-            <a :href="global.currentTab === 'customers' ? texts.customers.app_links.google_store : texts.sellers.app_links.google_store" rel="noopener noreferrer" target="_blank" title="Download our app from the Google Play now">
-              <img
-                :draggable="false"
-                :src="googleStoreImg"
-                width="170"
-                height="47"
-                class="object-contain zoom-on-hover hover:shadow-md w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] 3xl:w-[200px] h-auto"
-                alt="Google Play"
-              />
-            </a>
-            <a :href="global.currentTab === 'customers' ? texts.customers.app_links.apple_store : texts.sellers.app_links.apple_store" rel="noopener noreferrer" target="_blank" title="Download our app from the Apple store now">
-              <img
-                :draggable="false"
-                :src="appleStoreImg"
-                width="170"
-                height="47"
-                class="object-contain zoom-on-hover hover:shadow-md w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] 3xl:w-[200px] h-auto"
-                alt="Apple store"
-              />
+            <a
+              href="#"
+              class="bg-secondary text-primary font-bold py-3 px-8 rounded-lg text-[16px] sm:text-[18px] md:text-[20px] transition-all hover:brightness-110 hover:shadow-lg inline-block zoom-on-hover"
+            >
+              {{ $t("hero.add_brand_button") }}
             </a>
           </div>
         </div>
       </div>
     </div>
-    <!-- coins image -->
     <div
       class="w-full self-end flex-1 md:flex-auto flex justify-center mt-7 sm:mt-12"
     >
@@ -129,11 +79,7 @@
         :draggable="false"
         :src="HeroCoinsImg"
         class="object-contain px-2 min-w-[180px] w-[270px] sm:w-[280px] md:w-[390px] lg:w-[449px] xl:w-[510px] h-auto"
-        :alt="
-          global.currentTab === 'customers'
-            ? trimText($t('hero.customers.text1'), 155)
-            : trimText($t('hero.sellers.text1'), 155)
-        "
+        :alt="$t('hero.title')"
         width="510"
         height="321"
       />
@@ -142,73 +88,24 @@
 </template>
 
 <script>
-import { useGlobalStore } from "@/store/Modules/global";
-import giftImg from "@/assets/imgs/gift.svg";
-import coinsImg from "@/assets/imgs/coins.svg";
-import appleStoreImg from "@/assets/imgs/apple-store.svg";
-import googleStoreImg from "@/assets/imgs/google-store.svg";
 import HeroCoinsImg from "@/assets/imgs/hero-coins.png";
-import HeroTabItem from "./HeroTabItem.vue";
-import texts from "@/fixtures/texts.js";
-import { trimText } from "@/helpers";
+import promotionImg from "@/assets/imgs/promotion.png";
+import discountImg from "@/assets/imgs/discount.png";
+import giftBoxImg from "@/assets/imgs/giftbox.png";
+import cashbackImg from "@/assets/imgs/cashback.png";
+import customerLoyaltyImg from "@/assets/imgs/customer-loyalty.png";
 export default {
   data() {
     return {
-      giftImg,
-      coinsImg,
-      appleStoreImg,
-      googleStoreImg,
       HeroCoinsImg,
-      texts,
+      features: [
+        { icon: promotionImg, textKey: "hero.feature_1" },
+        { icon: discountImg, textKey: "hero.feature_2" },
+        { icon: giftBoxImg, textKey: "hero.feature_3" },
+        { icon: cashbackImg, textKey: "hero.feature_4" },
+        { icon: customerLoyaltyImg, textKey: "hero.feature_5" },
+      ],
     };
-  },
-  setup() {
-    const global = useGlobalStore();
-    const route = useRoute();
-    return {
-      global,
-      route,
-    };
-  },
-  components: {
-    HeroTabItem,
-  },
-  methods: {
-    trimText,
-    updateTab(tabId) {
-      this.$router.replace({
-        path: "/",
-        query: { ...this.route.query, tab: tabId },
-      });
-    },
-  },
-  watch: {
-    "global.currentTab"(val) {
-      if (val) {
-        const hash = this.route?.hash;
-        nextTick(() => {
-          if (hash) {
-            const element = document.getElementById(hash.replace(/#/, ""));
-            if (element) {
-              const yOffset =
-                -parseInt(
-                  getComputedStyle(document.body)?.getPropertyValue(
-                    "--min-height-header"
-                  )
-                ) ?? 80;
-              const y =
-                element.getBoundingClientRect().top +
-                window.pageYOffset +
-                yOffset;
-              window.scrollTo({
-                top: y,
-                behavior: "smooth",
-              });
-            }
-          }
-        });
-      }
-    },
   },
 };
 </script>
@@ -227,4 +124,28 @@ export default {
     background-image: url(../../assets/imgs/hero-bg-mobile.svg);
   }
 }
+
+.text-gradient {
+  background: linear-gradient(90deg, #FFF000 0%, #ff5900 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
 </style>
+
+

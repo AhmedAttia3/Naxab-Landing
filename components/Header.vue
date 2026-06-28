@@ -44,14 +44,21 @@
     <!-- mobile nav menu -->
     <div class="w-full flex md:hidden">
       <!-- header -->
-      <div class="site-container h-[var(--min-height-header)] flex items-center w-full bg-white">
-            <!-- empty element to balance layout -->
-            <span class="basis-[33.3%] py-2"/>
+      <div class="site-container h-[var(--min-height-header)] flex items-center justify-between w-full bg-white">
+            <!-- burger menu button -->
+            <button @click="() => changeMenuState()" aria-label="toggle menu" class="flex items-center">
+              <svg :class="`mobile-menu-button flex ${isMobileMenuOpen ? 'active' : ''}`" width="36" height="36" viewBox="0 0 40 26" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="mobile-menu-button-top" width="20" height="4" rx="3" ry="3" />
+                    <rect class="mobile-menu-button-middle" width="16" height="4" y="13" rx="3" ry="3" />
+                    <rect class="mobile-menu-button-bottom" width="36" height="4" y="25" rx="3" ry="3" />
+              </svg>
+            </button>
+
             <!-- site's logo -->
-            <NuxtLink class="basis-[33.3%] py-2 flex text-center justify-center" :href="routesNames.homepage.path">
+            <NuxtLink :href="routesNames.homepage.path" class="flex justify-center">
                   <img
                     :src="LogoImg"
-                    class="object-contain w-[64px] sm:w-[70px] md:w-[74px] lg:w-[68px] h-auto"
+                    class="object-contain w-[64px] sm:w-[70px] h-auto"
                     :draggable="false"
                     width="68"
                     height="50"
@@ -59,39 +66,39 @@
                   />
             </NuxtLink>
 
-            <!-- burger menu button -->
-            <span class="basis-[33.3%] py-2 flex justify-end items-center h-full">
-            <button  @click="() => changeMenuState()" aria-label="toggle menu" aria-labelledby="toggle menu">
-              <svg :class="`mobile-menu-button flex ${isMobileMenuOpen ? 'active' : ''}`" width="36" height="36" viewBox="0 0 40 26" xmlns="http://www.w3.org/2000/svg">
-                    <rect class="mobile-menu-button-top" width="20" height="4" rx="3" ry="3" />
-                    <rect class="mobile-menu-button-middle" width="16" height="4" y="13" rx="3" ry="3" />
-                    <rect class="mobile-menu-button-bottom" width="36" height="4" y="25" rx="3" ry="3" />
-              </svg>
-          </button>
-        </span>
+            <!-- language switcher -->
+            <div class="flex items-center">
+              <div v-if="global.isRTL" @click="() => changeLang('en')" class="cursor-pointer">
+                  <span class="rounded-md hover:bg-gray-200 p-1 font-bold text-[#92278f] text-[14px]">EN</span>
+              </div>
+              <div v-else @click="() => changeLang('ar')" class="cursor-pointer">
+                  <span class="rounded-md hover:bg-gray-200 p-1 font-bold text-[#92278f] text-[15px]">AR</span>
+              </div>
+            </div>
       </div>
       <!-- menu -->
-      <div v-if="isMobileMenuOpen" @click="() => changeMenuState(false)" class="overlay bg-[#000]/40 fade-effect top-[var(--min-height-header)] fixed md:hidden mobile-view w-[100vw] z-[5]"/>
+      <div v-if="isMobileMenuOpen" @click="() => changeMenuState(false)" class="overlay bg-[#000]/40 fade-effect top-[var(--min-height-header)] left-0 fixed md:hidden mobile-view w-[100vw] z-[5]"/>
       <transition name="mobile-slider">
-        <div v-if="isMobileMenuOpen" :class="`fixed w-[80%] mobile-menu  ${global?.isRTL ? 'left-0' : 'right-0'} top-[var(--min-height-header)] pb-4 pt-5 px-5 bg-[#343434] z-[10]`">
+        <div v-if="isMobileMenuOpen" :class="`fixed w-[90%] mobile-menu  ${global?.isRTL ? 'right-0' : 'left-0'} top-[var(--min-height-header)] pb-4 pt-5 bg-[#fff] backdrop-blur-md z-[10]`">
           <div class="flex flex-col h-full">
               <Nav :activeLink="global.activeLinkName" class=" flex-1" :isMobile="true" :closeMobileBar="() => changeMenuState(false)" :routesNames="routesNames"/> 
-              <div class="mt-5 mb-0">
-                <!-- switch to English -->
-                <div v-if="global.isRTL" @click="() => {changeLang('en'), changeMenuState(false)}" class="flex cursor-pointer text-white flex-row items-center ">
-                    <span class="flex flex-row rounded-md hover:bg-gray-50 hover:text-black p-2">
-                      <!-- <img :src="usFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain ml-1"/> -->
-                      <span class="text-[14px] mb-0 flex flex-row items-center"> English</span>
-                    </span>
+              
+              <!-- Creative Download CTA for Mobile -->
+              <div class="mt-auto pt-5 border-t border-white/10 text-center mb-4">
+                <div class="text-black/90 text-[13.5px] mb-3 font-medium">{{ $t('download_app') }} <span class="download-brand text-[1.2rem]">نكسب</span></div>
+                <div class="flex gap-3 justify-center">
+                  <a :href="texts.customers.app_links.google_store" target="_blank" class="text-[13px] font-medium transition-all duration-300 hover:brightness-110 flex items-center justify-center gap-1.5 download-link">
+
+                    {{ $t('for_user') }}
+                  </a>
+                  <p class="text-white/90 text-[13.5px]"> و </p>
+                  <a :href="texts.sellers.app_links.google_store" target="_blank" class="text-[13px] font-medium transition-all duration-300 hover:brightness-110 flex items-center justify-center gap-1.5 download-link">
+                    {{ $t('for_merchant') }}
+                  </a>
                 </div>
-                <!-- switch to Arabic -->
-                <div v-else class="flex flex-row items-center cursor-pointer text-white" @click="() => {changeLang('ar'); changeMenuState(false)}">
-                      <span class="flex flex-row rounded-md hover:bg-gray-50 hover:text-black p-2">
-                        <!-- <img :src="saudiFlagImg" class="w-[1.9rem] h-[1.9rem] object-contain mr-2"/> -->
-                        <span class="text-[15px] mb-2 flex flex-row items-center">عربى</span>
-                  </span>
-                </div>  
               </div>
+
+     
           </div>
 
 
@@ -108,13 +115,15 @@ import LogoImg from "@/assets/imgs/logo.png";
 // import usFlagImg from "@/assets/imgs/us_flag.png";
 import { useGlobalStore } from "~/store/Modules/global";
 import Nav from "./Nav.vue";
+import texts from "@/fixtures/texts.js";
 
 export default {
     data: () => {
         return {
             routesNames,
             LogoImg,
-            isMobileMenuOpen: false
+            isMobileMenuOpen: false,
+            texts
         };
     },
     setup() {
@@ -154,5 +163,14 @@ export default {
 }
 .mobile-menu{
   height: calc(100% - var(--min-height-header));
+}
+.download-brand {
+  background: linear-gradient(90deg, #FFF000 0%, #ff5900 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.download-link {
+  color: rgb(255 240 0 / 1);
 }
 </style>

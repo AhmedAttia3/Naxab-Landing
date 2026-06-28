@@ -1,5 +1,5 @@
 <template>
-  <section :id="global.currentTab === 'customers' ? texts.customers.navLinks.link6.sectionHash : texts.sellers.navLinks.link6.sectionHash" class="bg-[#343434] pb-0 pt-20 md:py-20 lg:py-24 py px-0 text-[#FFFFFF]">    
+  <section :id="global.currentTab === 'customers' ? texts.customers.navLinks.link7.sectionHash : texts.sellers.navLinks.link7.sectionHash" class="bg-[#343434] pb-0 pt-20 md:py-20 lg:py-24 py px-0 text-[#FFFFFF]">    
     <div class="inner-container px-0 md:px-7 lg:px-1">
        
         <div class="flex flex-wrap gap-y-10 gap-x-16">

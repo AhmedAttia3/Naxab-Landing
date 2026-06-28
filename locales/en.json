@@ -4,10 +4,11 @@
         "menu": "Menu",
         "about_naxab": "About Naxab",
         "give_your_clients_points": "Naxab points",
-        "stats": "Numbers and statistics",
-        "features": "Features",
+        "stats": "Important Features",
+        "features": "Features for users",
+        "seller_features": "Key features for brands",
         "contact_us": "Contact Us",
-        "journeys_of_points": "Journeys of Points",
+        "journeys_of_points": "How can you benefit as an app user",
         "trade_marks": "Trade Marks"
     },
     "more": "More",
@@ -17,7 +18,18 @@
             "first_tab": "Naxab for Clients ",
             "second_tab": "Naxab for Merchants"
         },
-        "title": "The First App",
+        "title": "Naxab",
+        "tagline": "The most powerful loyalty system",
+        "tagline_location": "In Egypt, Saudi Arabia, and the Arab world",
+        "subtitle1": "Keep your existing customers",
+        "subtitle2": "And attract new customers continuously",
+        "features_list": "Promotional offers – Discount coupons – Lucky wheel gifts – Cashback points – Loyalty rewards",
+        "feature_1": "Promotional offers",
+        "feature_2": "Discount coupons",
+        "feature_3": "Lucky wheel gifts",
+        "feature_4": "Cashback points",
+        "feature_5": "Loyalty rewards",
+        "add_brand_button": "Add your brand now",
         "sellers":  {
             "text1": "That enables your customers to benefit from the offers and discounts that you offer and convert them into points and rewards that you give them to enhance their loyalty to your brand",
             "text2": "Naxab .. Keep your existing customers",
@@ -44,7 +56,7 @@
               },
               "fourth": {
                 "text": "Important",
-                "highlight": "Features"
+                "highlight": "Features for brands"
               },
               "fifth": {
                 "text": "Contact",
@@ -60,10 +72,10 @@
                 "text": "Get to know",
                 "highlight": "Naxab"
               },
-              "second": {
-                "text": "Journey of",
-                "highlight": "Points"
-              },
+               "second": {
+                 "text": "How to benefit",
+                 "highlight": "as an app user"
+               },
               "third": {
                 "text": "Important",
                 "highlight": "Features"
@@ -99,11 +111,11 @@
     "points_seller_title_1": "(Cash Back) Points",
     "points_seller_description_2":  "They're the points that the customer will collect from every purchase he makes through his purchase invoice, and these points are equal to the total value of the invoice, and they are accumulated until the customer reaches the loyalty limit required of him and obtains the loyalty reward after that.",
     "points_seller_title_2": "(loyalty) Points",
-    "points_customer_description_1": "Browse the best stores and brands within the Naxab application",
-    "points_customer_description_2":  "Go buy at one of these stores and keep the bill",
-    "points_customer_description_3":  "Open the Naxab application and scan the code on the bill to add points",
-    "points_customer_description_4":  "Points have been added successfully (cashback points or loyalty points)",
-    "points_customer_description_5": "Redeem your wallet points or get your reward from the store that gave you them",
+    "points_customer_description_1": "Download the app and discover the best stores and brands around you",
+    "points_customer_description_2": "Browse the strongest offers and discounts from those brands, and get coupons to benefit from them",
+    "points_customer_description_3": "Spin the lucky wheel and enjoy playing it to win many gifts",
+    "points_customer_description_4": "Collect cashback points in your wallet, or loyalty points through your purchase invoice",
+    "points_customer_description_5": "Go to the store to benefit from coupons, redeem cashback points, and receive gifts and rewards",
     "points_customer_title_1": "",
     "points_customer_title_2": "",
     "points_customer_title_3": "",
@@ -117,24 +129,28 @@
     "joining_invetation_seller_text_1": "You take that chance.",
     "joining_invetation_seller_text_2":"And take the initiative to join the brands, download the application, and have a different and unique experience in the world of points and loyalty applications",
     "joining_invetation_seller_button_1": "Join now",
-    "seller_feature_1": "Easy and attractive interface for the customer and the store",
-    "seller_feature_2": "Include your store data, communication means, and pictures for each section of your products",
-    "seller_feature_3": "Customer behavior analysis dashboard",
-    "seller_feature_4": "The ability to add more than one branch and locate it on the GPS map",
-    "seller_feature_5": "It does not require connection to any other system",
-    "seller_feature_6": "Awarding and adding points through the purchase invoice",
-    "seller_feature_7": "The possibility of adding employee accounts (managers, cashiers)",
-    "seller_feature_8": "Control the appropriate discount rate that you offer to your customers and change it at any time",
-    "seller_feature_9": "Enabling the customer to follow up on his wallet points as well as the loyalty limit rate",
-    "seller_feature_10": "Choose the loyalty limit amount to be reached from your customers' repeat purchases",
-    "seller_feature_11": "Ease of disbursement of points and rewards for the customer",
-    "customer_feature_1": "Keep track of your wallet points from within the app",
-    "customer_feature_2": "Keep track of your wallet points from within the app",
-    "customer_feature_3": "Keep track of your wallet points from within the app",
-    "customer_feature_4": "Keep track of your wallet points from within the app",
-    "customer_feature_5": "Keep track of your wallet points from within the app",
+    "seller_feature_1": "Perfect design and attractive interface for both the user and the store.",
+    "seller_feature_2": "Easy and simple control panel to manage your store data, offers, discounts, and gifts provided to your customers, with the ability to modify or stop them at any time.",
+    "seller_feature_3": "The ability to list more than one branch of your store, define the phone number for each branch, and locate it on the GPS map.",
+    "seller_feature_4": "The ability to add multiple accounts for your store employees (managers - cashiers).",
+    "seller_feature_5": "The ability to create and publish more than one promotional offer at the same time, and determine the number of coupons allocated for each offer separately (free service).",
+    "seller_feature_6": "Setting up and building gift segments and sections for your brand's lucky wheel (paid service).",
+    "seller_feature_7": "Activating the purchase invoice points system, enabling the customer to add cashback or loyalty points (paid service).",
+    "seller_feature_8": "It does not require or depend on integration with any other system, whether an accounting program or otherwise.",
+    "seller_feature_9": "Allowing the customer to track their wallet points within the app, and know the number of earned and valid gifts and rewards they have.",
+    "seller_feature_10": "Easy mechanism for redeeming points and delivering gifts and rewards to the customer through the QR Code system.",
+    "seller_feature_11": "A complete and detailed log of all transactions made (points redemption - gift redemption - reward redemption).",
+    "seller_feature_12": "A record showing the total value of customer purchases, analyzing each customer's behavior, and knowing their purchasing power.",
+    "customer_feature_1": "Follow the best offers and get coupons",
+    "customer_feature_2": "Spin the activated lucky wheel and win gifts",
+    "customer_feature_3": "Track your wallet and points in real time",
+    "customer_feature_4": "Shop and earn cashback points",
+    "customer_feature_5": "Shop and earn loyalty points",
     "call_to_action_text": "Enjoy a unique and fun experience in the world of discounts, points and rewards",
     "call_to_action_highlight": "And download the app",
-    "footer_copyright": "ALL RIGHTS RESERVED"
+    "footer_copyright": "ALL RIGHTS RESERVED",
+"download_app": "Download",
+"for_user": "For User",
+"for_merchant": "For Merchant"
     
 }
