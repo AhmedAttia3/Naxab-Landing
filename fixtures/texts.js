@@ -23,11 +23,6 @@ const texts = {
         path: "/",
         translationId: "menu"
       },
-      link2: {
-        sectionHash: "about_naxab",
-        path: "/",
-        translationId: "about_naxab"
-      },
       link3: {
         sectionHash: "get_points",
         path: "/",
@@ -37,11 +32,6 @@ const texts = {
         sectionHash: "stats",
         path: "/",
         translationId: "stats"
-      },
-      link5: {
-        sectionHash: "features",
-        path: "/",
-        translationId: "features"
       },
       link6: {
         sectionHash: "contact_us",
@@ -104,6 +94,7 @@ const texts = {
       "seller_feature_9",
       "seller_feature_10",
       "seller_feature_11",
+      "seller_feature_12",
     ]
   },
   customers: { // ------  الجزء الخاص بالعملاء -------
@@ -119,11 +110,6 @@ const texts = {
         path: "/",
         translationId: "menu"
       },
-      link2: {
-        sectionHash: "about_naxab",
-        path: "/",
-        translationId: "about_naxab"
-      },
       link3: {
         sectionHash: "get_points",
         path: "/",
@@ -135,11 +121,16 @@ const texts = {
         translationId: "features"
       },
       link5: {
-        sectionHash: "trade_marks",
+        sectionHash: "stats-section",
         path: "/",
-        translationId: "trade_marks"
+        translationId: "stats"
       },
       link6: {
+        sectionHash: "features-list",
+        path: "/",
+        translationId: "seller_features"
+      },
+      link7: {
         sectionHash: "contact_us",
         path: "/",
         translationId: "contact_us"
@@ -185,27 +176,27 @@ const texts = {
     // غير هنا الصورة والوصف لكل عنصر في قسم رحلتك مع النقاط. ممكن هنا تضيف او تمسح عناصر لو عايز
     points_illustrations: [
       {
-        image: "../assets/imgs/Online Groceries-cuate.svg",
+        image: "../assets/imgs/Online shopping-bro.png",
         descriptionTranslationId: "points_customer_description_1",
         titleTranslationId: "points_customer_title_1"
       },
       {
-        image: "../assets/imgs/Thrift shop-rafiki.svg",
+        image: "../assets/imgs/Discount-cuate.png",
         descriptionTranslationId: "points_customer_description_2",
         titleTranslationId: "points_customer_title_2"
       },
       {
-        image: "../assets/imgs/QR Code-rafiki_1.svg",
+        image: "../assets/imgs/Gemini_Generated_Image_r9nts6r9nts6r9nt.png",
         descriptionTranslationId: "points_customer_description_3",
         titleTranslationId: "points_customer_title_3"
       },
       {
-        image: "../assets/imgs/QR Code-rafiki_2.svg",
+        image: "../assets/imgs/Wallet-pana.png",
         descriptionTranslationId: "points_customer_description_4",
         titleTranslationId: "points_customer_title_4"
       },
       {
-        image: "../assets/imgs/Shop giveaway-bro.svg",
+        image: "../assets/imgs/Gemini_Generated_Image_czufrczufrczufrc.png",
         descriptionTranslationId: "points_customer_description_5",
         titleTranslationId: "points_customer_title_5"
       }

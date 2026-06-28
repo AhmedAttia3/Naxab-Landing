@@ -2,18 +2,18 @@
   <!-- HOME PAGE -->
   <Page
     :title="texts && texts.seo && texts.seo.title"
-    :description="global?.currentTab === 'customers' ? trimText(texts.seo.customer_tab_description, 165) : trimText(texts.seo.seller_tab_description, 165)"
+    :description="trimText(texts.seo.customer_tab_description, 165)"
   >
     <!-- intro section -->
     <Hero />
-    <!-- about section -->
-    <About />
     <!-- points section -->
     <Points />
     <!-- Features slides -->
     <FeaturesSlides />
-    <!-- Trade marks -->
-    <TradeMarks />
+    <!-- Stats -->
+    <Stats />
+    <!-- Important Features -->
+    <ImportantFeatures />
     <!-- Call to action section -->
     <CallToAction />
     <!-- Contact us -->
@@ -27,10 +27,10 @@ import AOS from 'aos'
 import {
   Hero,
   Page,
-  About,
   Points,
   FeaturesSlides,
-  TradeMarks,
+  Stats,
+  ImportantFeatures,
   CallToAction,
   ContactUs
 } from "@/components";
@@ -84,31 +84,17 @@ export default {
   components: {
     Hero,
     Page,
-    About,
     Points,
     FeaturesSlides,
-    TradeMarks,
+    Stats,
+    ImportantFeatures,
     CallToAction,
     ContactUs
   },
   methods: {
     trimText
   },
-  watch: {
-    "route.query.tab"(val){
-        if(val && (val === 'customers' || val === 'sellers')){
-          this.$nextTick(() => {
-            // sets current tab in the Pinia store
-            this.global.changeCurrentTab(val);
-          })
-        }
-    },
-  },
   mounted(){     
-    const tabId = this.route.query.tab;
-    if(tabId && (tabId === 'customers' || tabId === 'sellers')){
-      this.global.changeCurrentTab?.(tabId);
-    }
     this.$nextTick(() => {
       AOS.init();
     })

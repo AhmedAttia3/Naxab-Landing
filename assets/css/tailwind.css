@@ -14,7 +14,7 @@
         @apply p-0 m-0 md:rounded-[7px] border-l-[2px] border-transparent md:border-none font-normal text-[1rem] text-gray-400 whitespace-nowrap hover:bg-black/5  md:hover:bg-slate-200 ease-linear duration-150 md:text-[#000000] md:text-[14.1px] lg:text-[16px] xl:text-[16.1px] 3xl:text-[17px] cursor-pointer;
     }
     .site-container {
-        @apply px-7 sm:px-8 md:px-10 lg:px-[100px] xl:px-[150px] 2xl:px-[230px] 3xl:px-[300px] mx-auto;
+        @apply px-7 sm:px-8 md:px-10 lg:px-[100px] xl:px-[100px] 2xl:px-[230px] 3xl:px-[300px] mx-auto;
     }
     .inner-container{
         @apply max-w-[800px] md:max-w-[900px] lg:max-w-[960px] 3xl:max-w-[1200px] px-4 md:px-7 lg:px-1 mx-auto;
