@@ -13,7 +13,19 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 📤 Deploy Nuxt App
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm install
+
+      - name: 🏗️ Build & Generate Static Site
+        run: npm run generate
+
+      - name: 📤 Deploy Nuxt App (Static Build)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -21,17 +33,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftp
-          local-dir: ./
+          local-dir: ./.output/public/
           server-dir: /public_html/
           dangerous-clean-slate: false
           log-level: verbose
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.nuxt/**
-            **/.output/**
-            **/dist/**
-            README.md
-            changelog.md
-            .env*
