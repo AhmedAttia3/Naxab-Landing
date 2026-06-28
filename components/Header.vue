@@ -85,7 +85,7 @@
               
               <!-- Creative Download CTA for Mobile -->
               <div class="mt-auto pt-5 border-t border-white/10 text-center mb-4">
-                <p class="text-#black/90 text-[13.5px] mb-3 font-medium">{{ $t('download_app') }} <p class="download-brand text-[1.2rem]">نكسب</p></p>
+                <div class="text-black/90 text-[13.5px] mb-3 font-medium">{{ $t('download_app') }} <span class="download-brand text-[1.2rem]">نكسب</span></div>
                 <div class="flex gap-3 justify-center">
                   <a :href="texts.customers.app_links.google_store" target="_blank" class="text-[13px] font-medium transition-all duration-300 hover:brightness-110 flex items-center justify-center gap-1.5 download-link">
 
